@@ -1,9 +1,9 @@
 import heapq
 class HeapItem:
-    def __init__(self, word:str, count:str) -> None:
+    def __init__(self, word, count) -> None:
         self.word = word
         self.count = count
-    def __lt__(self, compare_word:HeapItem) -> bool:
+    def __lt__(self, compare_word) -> bool:
         if self.count == compare_word.count:
             return self.word > compare_word.word
         return self.count < compare_word.count
