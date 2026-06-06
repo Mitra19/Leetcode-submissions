@@ -18,15 +18,17 @@ class Twitter:
         for followerid in self.followingMap[userId]:
             if followerid in self.tweetMap:
                 index = len(self.tweetMap[followerid]) - 1
-                count, tweetId = self.tweetMap[followerid][index]
-                heap.append([count, tweetId, followerid, index - 1])
+                while index > -1:
+                    count, tweetId = self.tweetMap[followerid][index]
+                    heap.append([count, tweetId])
+                    index -= 1
         heapq.heapify(heap)
+        print(f"heap before: {heap}")
+        heapq.nlargest(10, heap)
+        print(f"heap after: {heap}")
         while heap and len(res) < 10:
-            count, tweetId, followerid, index = heapq.heappop(heap)
+            count, tweetId = heapq.heappop(heap)
             res.append(tweetId)
-            if index >= 0:
-                count, tweetId = self.tweetMap[followerid][index]
-                heapq.heappush(heap, [count, tweetId, followerid, index - 1])
         return res
         
                 
