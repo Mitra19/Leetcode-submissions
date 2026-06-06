@@ -23,9 +23,6 @@ class Twitter:
                     heap.append([count, tweetId])
                     index -= 1
         heapq.heapify(heap)
-        print(f"heap before: {heap}")
-        heapq.nlargest(10, heap)
-        print(f"heap after: {heap}")
         while heap and len(res) < 10:
             count, tweetId = heapq.heappop(heap)
             res.append(tweetId)
