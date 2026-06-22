@@ -6,7 +6,7 @@ class Solution:
                 count[ch] += 1
         ans = float("inf")
         for key, value in count.items():
-            print(f"key: {key}, value: {value}")
+            # print(f"key: {key}, value: {value}")
             if key in "ban":
                 ans = min(ans, value)
             else:
