@@ -1,8 +1,6 @@
 class Solution:
     def arrayRankTransform(self, arr: List[int]) -> List[int]:
-        arr_set = set(arr)
-        arr_set = sorted(arr_set)
-        print(arr_set)
+        arr_set = sorted(set(arr))
         index_dict = {}
         index = 1
         for i in arr_set:
